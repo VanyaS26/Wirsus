@@ -8,7 +8,7 @@ public class ToggleFillScript : MonoBehaviour
     private float b;
     [SerializeField] private Image _toggleImage;
     private Toggle _toggle;
-    private void Awake() { 
+    private void Start() { 
         r = PlayerPrefs.GetFloat("RedColorValueTheme",1); 
         g = PlayerPrefs.GetFloat("GreenColorValueTheme",1);
         b = PlayerPrefs.GetFloat("BlueColorValueTheme",1); 
