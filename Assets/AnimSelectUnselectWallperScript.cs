@@ -1,30 +1,25 @@
-using UnityEditor.Timeline.Actions;
+
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class AnimSelectUnselectWallperScript : MonoBehaviour
 {
     private int wallperID;
-    InputAction inputAction;
+    
     [SerializeField] private int wallperIDNeed;
     [SerializeField] private AnimationClip clip;
     [SerializeField] private AnimationClip clipUn;
     [SerializeField] private Animation animation;
-    private void Awake() { wallperID = PlayerPrefs.GetInt("WallperID", 0); Anim(); }
+    private void Awake() { Anim(true); }
 
     public void Anim(bool doPlayFirstAnim)
     {
+        wallperID = PlayerPrefs.GetInt("WallperID", 0);
         if (wallperID == wallperIDNeed && doPlayFirstAnim)
             SetAnim(clip);
         else 
             SetAnim(clipUn);
     }
 
-    void OnEnable()
-    {
-        inputAction.Enable();
-        inputAction.performed += ctx => Anim(false);
-    }
 
     void SetAnim(AnimationClip clip)
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WallpersListScript : MonoBehaviour
 {
-    [SerializeField] AnimSelectUnselectWallperScript[] animSelectUnselectWallperScripts;
+    [SerializeField]private AnimSelectUnselectWallperScript[] animSelectUnselectWallperScripts;
     public void OnClickOnWallper(int wallperID) 
     {
         PlayerPrefs.SetInt("WallperID", wallperID);
