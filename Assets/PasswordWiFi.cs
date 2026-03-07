@@ -6,7 +6,7 @@ public class PasswordWiFi : MonoBehaviour
     InputField inputField;
     
 
-    private void Awake()
+    private void Start()
     {
         inputField = GetComponent<InputField>();
         inputField.text = PlayerPrefs.GetString("PasswordWiFi", "12345678");
