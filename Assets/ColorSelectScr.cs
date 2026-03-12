@@ -15,13 +15,14 @@ public class ColorSelectScr : MonoBehaviour
     [SerializeField] GameObject Canvas;
     [SerializeField] ColorChangeThemeScript[] _colorChangeThemeScripts;
 
+
     private void Awake()
     {
         _bois.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("BIOSTheme"));
         _red.text = Convert.ToString(PlayerPrefs.GetFloat("RedColorValueTheme") * 255f);
         _green.text = Convert.ToString(PlayerPrefs.GetFloat("GreenColorValueTheme") * 255f);
         _blue.text = Convert.ToString(PlayerPrefs.GetFloat("BlueColorValueTheme") * 255f);
-
+     
         
 
     }
@@ -34,7 +35,7 @@ public class ColorSelectScr : MonoBehaviour
 
     public void BOISTheme() { PlayerPrefs.SetInt("BIOSTheme", Convert.ToInt32(_bois.isOn)); }
 
-    private void A()
+    public void A()
     {
         int i = 0;
         

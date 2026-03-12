@@ -11,7 +11,7 @@ public class AppActivate : MonoBehaviour
     void Awake() { _app.SetActive(false); _indicator.SetActive(false); }
     
 
-    public void OpenApp(GameObject App) { App.SetActive(true); _anim.clip = _clipOriginal;_anim.Play(); _indicator.SetActive(true); }
+    public void OpenApp() { _app.SetActive(true); _anim.clip = _clipOriginal;_anim.Play(); _indicator.SetActive(true); }
         
-    public void CloseApp(GameObject App) { App.SetActive(false); _indicator.SetActive(false); }
+    public void CloseApp() { _app.SetActive(false); _indicator.SetActive(false); }
 }
