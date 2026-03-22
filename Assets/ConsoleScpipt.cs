@@ -44,7 +44,7 @@ public class ConsoleScpipt : MonoBehaviour
 
         if (string.IsNullOrWhiteSpace(raw))
         {
-            Debug.Log("this is fucking big problem");
+            
 
             ClearConsole();
             return;
@@ -78,15 +78,20 @@ public class ConsoleScpipt : MonoBehaviour
         else if (words.Length > 0 && words[0] == "closeapp") { string app = words[1]; CloseApp(app); }
         else if (words.Length > 0 && words[0] == "print") { Print(); }
         else if (words.Length > 0 && words[0] == "offmachine") { if (_isAndim) { Application.Quit(); } else { StartCoroutine(WaitAndPrint(2f,"restart as administrator")); } }
-        else if (words.Length > 0 && words[0] == "runuac") { RunUAC(); }
+        else if (words.Length > 0 && words[0] == "runuac" && _isAndim != true) { RunUAC(); }
         else { ClearConsole(); }
     }
 
     async void RunUAC()
     {
         _isAndim = await UAC.StartUAC(this);
-        WaitAndPrint(2f, "permission: " + Convert.ToString(_isAndim));
-        ClearConsole();
+        print(2f, "permission: " + Convert.ToBoolean(_isAndim));
+        
+    }
+
+    void print(float sec,string mass)
+    {
+        StartCoroutine(WaitAndPrint(sec,mass));
     }
     void Print()
     {

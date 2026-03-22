@@ -1,14 +1,17 @@
-using UnityEngine;
 using System;
-using UnityEngine.UI;
 using System.Data.Common;
+using System.Drawing;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class DarkThemeScript : MonoBehaviour
 {
     [SerializeField] private bool darktheme;
     [SerializeField] private Toggle inputField;
-    public ChangeThmeDarkOrLightForPanels[] changeThmeDarkOrLightForPanels;
-    public ChangeThmeDarkOrLightForTexts[] changeThmeDarkOrLightForTexts;
+    ChangeThmeDarkOrLightForPanels[] _changeThmeDarkOrLightForPanels;
+    ChangeThmeDarkOrLightForTexts[] _changeThmeDarkOrLightForTexts;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -20,15 +23,21 @@ public class DarkThemeScript : MonoBehaviour
 
     private void A()
     {
-        int i = 0;
+        _changeThmeDarkOrLightForPanels = FindObjectsByType<ChangeThmeDarkOrLightForPanels>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
-        while (i < changeThmeDarkOrLightForPanels.Length) { changeThmeDarkOrLightForPanels[i].AcceptTheme(); i++; }
+        foreach (var target in _changeThmeDarkOrLightForPanels)
+        {
+            target.AcceptTheme();
+        }
     }
 
     private void B()
     {
-        int i = 0;
+        _changeThmeDarkOrLightForTexts = FindObjectsByType<ChangeThmeDarkOrLightForTexts>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
-        while (i < changeThmeDarkOrLightForTexts.Length) { changeThmeDarkOrLightForTexts[i].AcceptTheme(); i++; }
+        foreach (var target in _changeThmeDarkOrLightForTexts)
+        {
+            target.AcceptTheme();
+        }
     }
 }

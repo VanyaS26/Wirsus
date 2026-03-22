@@ -18,9 +18,9 @@ public class ChangeThmeDarkOrLightForPanels : MonoBehaviour
     {
         DarkTheme = Convert.ToBoolean(PlayerPrefs.GetInt("DarkTheme"));
         if (DarkTheme)
-            image.color = new Color(0.2f, 0.2f, 0.2f, 1f);
+            image.color = new Color(0.2f, 0.2f, 0.2f);
         else
-            image.color = new Color(0.84f, 0.84f, 0.84f, 1f);
+            image.color = new Color(0.84f, 0.84f, 0.84f);
 
     }
 
