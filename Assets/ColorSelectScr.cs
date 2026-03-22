@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,7 @@ public class ColorSelectScr : MonoBehaviour
     [SerializeField] InputField _blue;
     [SerializeField] Toggle _bois;
     [SerializeField] GameObject Canvas;
-    [SerializeField] ColorChangeThemeScript[] _colorChangeThemeScripts;
-
+    ColorChangeThemeScript[] color;
 
     private void Awake()
     {
@@ -35,10 +35,15 @@ public class ColorSelectScr : MonoBehaviour
 
     public void BOISTheme() { PlayerPrefs.SetInt("BIOSTheme", Convert.ToInt32(_bois.isOn)); }
 
+
+
     public void A()
     {
-        int i = 0;
-        
-        while(i < _colorChangeThemeScripts.Length) { _colorChangeThemeScripts[i].AcceptTheme(); i++; }
+        color = FindObjectsByType<ColorChangeThemeScript>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        foreach (var target in color)
+        {
+            target.AcceptTheme();
+        }
     }
 }
