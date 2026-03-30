@@ -69,5 +69,6 @@
     },
     "dotnet.defaultSolution": "Wirsus.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false,
-    "window.zoomLevel": 2
+    "window.zoomLevel": 2,
+    "editor.mouseWheelZoom": true
 }
