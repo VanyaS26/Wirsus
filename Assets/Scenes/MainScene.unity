@@ -2650,7 +2650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &274091577
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3377,7 +3377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.999939, y: 0}
+  m_AnchoredPosition: {x: -4.999893, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &323415525
@@ -4860,7 +4860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_AnchoredPosition: {x: 0, y: -0.50006104}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475966121
@@ -8192,6 +8192,7 @@ GameObject:
   - component: {fileID: 779675186}
   - component: {fileID: 779675189}
   - component: {fileID: 779675190}
+  - component: {fileID: 779675191}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -8311,6 +8312,20 @@ MonoBehaviour:
   day: 0
   month: 0
   year: 0
+--- !u!114 &779675191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779675184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
+  m_AspectMode: 1
+  m_AspectRatio: 2.6
 --- !u!1 &813863302
 GameObject:
   m_ObjectHideFlags: 0
@@ -16182,7 +16197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14037725, y: 0.20300001}
   m_AnchorMax: {x: 0.89081144, y: 0.78245795}
-  m_AnchoredPosition: {x: -0.99998474, y: -0.44140625}
+  m_AnchoredPosition: {x: -0.99998474, y: -0.44141006}
   m_SizeDelta: {x: 11.868401, y: 26.882896}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1413676408
@@ -17490,7 +17505,7 @@ RectTransform:
   m_Father: {fileID: 320090580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -17719,9 +17734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25f038c748f0fd41aa76a8717f06659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diskName: 68
-  folders: []
-  foldersCount: 0
+  diskName: 67
+  foldersCount: 99
 --- !u!114 &1500701280
 MonoBehaviour:
   m_ObjectHideFlags: 0
