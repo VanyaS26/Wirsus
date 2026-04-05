@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pictogrammers-Material-Light-Console.512_0: 7476244375319593125
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

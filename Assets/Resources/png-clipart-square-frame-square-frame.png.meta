@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      png-clipart-square-frame-square-frame_0: -6806152160833543800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
