@@ -2,23 +2,16 @@ using System;
 using System.Collections.Generic;
 
 [Serializable]
-public class FileData
+public class BaseFileType
 {
-    public string type; // "exe", "txt" тощо
+    public string type;
     public string fileName;
-    // Сюди додавай інші поля (розмір, іконка)
-}
-
-[Serializable]
-public class FolderData
-{
-    public string folderName;
-    public List<FileData> files = new List<FileData>();
-}
-
-[Serializable]
-public class DiskSaveData
-{
-    public char diskName;
-    public List<FolderData> folders = new List<FolderData>();
+    public string content;
+    
+    public BaseFileType(string type, string fileName, string content)
+    {
+        this.type = type;
+        this.fileName = fileName;
+        this.content = content;
+    }
 }

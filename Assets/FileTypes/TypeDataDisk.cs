@@ -19,13 +19,12 @@ public class TypeDataDisk : MonoBehaviour
         ReferenceLoopHandling = ReferenceLoopHandling.Ignore
     };
 
-    public void SetName(char name) {  diskName = name; }
+    public void SetName(char name) {  diskName = name; UpdateDisk(false); }
 
     private void Awake()
     {
         foldersCount = folders.Count;
         Load();
-        SaveDataToJson();
     }
 
     public void AddFolder(FolderWithoutMono folder) 
@@ -33,7 +32,6 @@ public class TypeDataDisk : MonoBehaviour
         folders.Add(folder);
         foldersCount = folders.Count;
         UpdateDisk(false);
-        SaveDataToJson();
     }
 
     private void UpdateDisk(bool res)
@@ -50,7 +48,7 @@ public class TypeDataDisk : MonoBehaviour
             folders = withoutMono.list;
             foldersCount = withoutMono.foldersCount;
         }
-        
+        SaveDataToJson();
     }
 
     public void SaveDataToJson()

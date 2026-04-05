@@ -5,5 +5,5 @@ public class FolderWithoutMono
 {
     string folderName;
     int filesCount;
-    List<object> files = new List<object>();
+    List<BaseFileType> files = new List<BaseFileType>();
 }
