@@ -14,8 +14,17 @@ public class TypeDataFolder : MonoBehaviour
 
     private void Awake()
     {
-        Load();
+        if(IsThisFirstLaunch.isThisFirstLaunch.isFirstLaunch == true)
+        {
+            SaveDataToJson();
+        }
+        else
+        {
+            Load();
+        }
     }
+
+    public void CreateFolder(){}
 
     public void AddFile(BaseFileType file) 
     {
