@@ -9,7 +9,6 @@ public class TypeDataDisk : MonoBehaviour
 {
     private DiskWithoutMono withoutMono = new DiskWithoutMono();
     [SerializeField]char diskName;
-    [SerializeField]private List<FolderWithoutMono> folders = new List<FolderWithoutMono>();
     public int foldersCount;
 
     private JsonSerializerSettings _settings = new JsonSerializerSettings
@@ -23,14 +22,15 @@ public class TypeDataDisk : MonoBehaviour
 
     private void Awake()
     {
-        foldersCount = folders.Count;
-        Load();
+        FolderWithoutMono folderWithoutMono = new FolderWithoutMono();
+        AddFolder(folderWithoutMono);
+        SaveDataToJson();
     }
 
     public void AddFolder(FolderWithoutMono folder) 
     {
-        folders.Add(folder);
-        foldersCount = folders.Count;
+        withoutMono.list.Add(folder);
+        foldersCount = withoutMono.list.Count;
         UpdateDisk(false);
     }
 
@@ -39,20 +39,18 @@ public class TypeDataDisk : MonoBehaviour
         if (!res)
         {
             withoutMono.foldersCount = foldersCount;
-            withoutMono.list = folders;
             withoutMono.nameDisk = diskName;
         }
         else
         {
             diskName = withoutMono.nameDisk;
-            folders = withoutMono.list;
             foldersCount = withoutMono.foldersCount;
         }
-        SaveDataToJson();
     }
 
     public void SaveDataToJson()
     {
+        UpdateDisk(false);
         PlayerPrefs.SetString("diskName", Convert.ToString(diskName));
         string path = Application.persistentDataPath;
         string fileName = string.Join("_", (diskName.ToString() + ".json").Split(Path.GetInvalidFileNameChars()));

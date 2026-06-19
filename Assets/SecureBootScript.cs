@@ -1,43 +1,51 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SecureBootScript : MonoBehaviour
+public class UniversialTumblerScr : MonoBehaviour
 {
-    int onoff = 0;
-    public Text text;
-    public ActiveScript2 script;
+    [SerializeField]int neededPos;
+    [SerializeField]string key;
+    int pos = 0;
+    [SerializeField]string[] textAtPos;
+    private Text text;
+
+    [SerializeField]CostScr script;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        onoff = PlayerPrefs.GetInt("SecureBoot", 0);
-        if (onoff == 0)
+        int a = textAtPos.Length;
+        text = GetComponent<Text>();
+        pos = PlayerPrefs.GetInt(key, 0);
+        for(int i = 0; i < a; i++)
         {
-            text.text = "Off";
-        }
-        else if (onoff == 1)
-        {
-            text.text = "On";
+            if(pos == i)
+            {
+                text.text = textAtPos[i];
+                break;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (script.active == true)
+        if (script.block == neededPos)
         {
             if (Input.GetKeyUp(KeyCode.KeypadPlus))
             {
-                onoff = 1;
-                PlayerPrefs.SetInt("SecureBoot", onoff);
-                text.text = "On";
+                pos++;
+                PlayerPrefs.SetInt(key, pos);
+                text.text = textAtPos[pos];
             }
-            else if (Input.GetKeyUp(KeyCode.KeypadMinus))
+            else if (Input.GetKeyUp(KeyCode.KeypadMinus) && pos > 0)
             {
-                onoff = 0;
-                PlayerPrefs.SetInt("SecureBoot", onoff);
-                text.text = "Off";
+                pos--;
+                PlayerPrefs.SetInt(key, pos);
+                text.text = textAtPos[pos];
             }
         }
 
     }
+    
 }

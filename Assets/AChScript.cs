@@ -1,27 +1,41 @@
 using UnityEngine;
 
-public class AChScript : MonoBehaviour
+public class CostScr : MonoBehaviour
 {
-    public static AChScript instance;
     public int block;
+    public GameObject[] gameObjects;
     void Start()
     {
-        instance = this;
-        block = 1;
+        block = 0;
+        for(int i = 0; i < gameObjects.Length; i++)
+        {
+            gameObjects[i].SetActive(false);
+        }
+        gameObjects[block].SetActive(true);
     }
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.DownArrow)) { 
-            if(block < 2)
+            if(block < gameObjects.Length - 1)
             {
                 block++;
+                for(int i = 0; i < gameObjects.Length; i++)
+                {
+                    gameObjects[i].SetActive(false);
+                }
+                gameObjects[block].SetActive(true);
             }
         }
         if (Input.GetKeyUp(KeyCode.UpArrow)) { 
-            if(block > 1)
+            if(block > 0)
             {
                 block--;
+                for(int i = 0; i < gameObjects.Length; i++)
+                {
+                    gameObjects[i].SetActive(false);
+                }
+                gameObjects[block].SetActive(true);
             }
         }
     }
